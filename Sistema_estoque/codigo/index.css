@@ -1,0 +1,265 @@
+/* Estilos gerais do corpo e fontes */
+body {
+    background-color: #f4f4f4; /* Define a cor de fundo da página */
+    margin: 0; /* Remove as margens padrão */
+    font-family: 'Arial', sans-serif; /* Define a fonte do texto */
+}
+
+.espacamento{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espaçamento entre os elementos (inputs e links) */
+    margin-top: 20px;
+
+}
+/* Botão de Entrada de Usuário no topo direito */
+.login-btn {
+    position: absolute; /* Posiciona o botão de forma absoluta */
+    top: 20px; /* Define a distância do topo */
+    right: 20px; /* Define a distância da direita */
+}
+
+/* Estilo do botão de login */
+.sign-in-button {
+    background-color: #09ffea; /* Cor de fundo do botão */
+    color: black; /* Cor do texto */
+    padding: 8px 20px; /* Espaçamento interno do botão */
+    border-radius: 5px; /* Bordas arredondadas */
+    text-decoration: none; /* Remove o sublinhado */
+    font-size: 16px; /* Tamanho da fonte */
+    transition: background-color 0.3s ease; /* Transição suave para a cor de fundo ao passar o mouse */
+}
+
+/* Estilo do botão de login quando o mouse passa por cima */
+.sign-in-button:hover {
+    background-color: #05c6b3; /* Altera a cor de fundo */
+    color: white; /* Muda a cor do texto */
+}
+
+/* Estilização do Header */
+.header {
+    background-color: #333; /* Cor de fundo do cabeçalho */
+    color: white; /* Cor do texto */
+    padding: 15px 0; /* Espaçamento interno do cabeçalho */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Estilo da navegação dentro do header */
+.header nav {
+    display: flex; /* Exibe os itens de navegação como flexbox */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 30px; /* Define um espaço entre os itens de navegação */
+}
+
+/* Estilo dos links dentro da navegação */
+.header nav a {
+    color: white; /* Cor do texto do link */
+    text-decoration: none; /* Remove o sublinhado do link */
+    font-size: 18px; /* Tamanho da fonte do link */
+    padding: 10px 20px; /* Espaçamento interno dos links */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background-color 0.3s ease; /* Transição suave para o fundo ao passar o mouse */
+}
+
+/* Estilo dos links quando o mouse passa por cima */
+.header nav a:hover {
+    background-color: #444; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilização do título da empresa */
+h1 {
+    text-align: center; /* Centraliza o título */
+    color: #333; /* Cor do título */
+    font-size: 36px; /* Tamanho da fonte do título */
+    margin-top: 40px; /* Espaçamento superior */
+}
+
+/* Estilização do formulário e tabela de produtos */
+.center {
+    display: flex; /* Exibe os elementos como flexbox */
+    flex-direction: column; /* Alinha os elementos na coluna */
+    align-items: center; /* Centraliza os elementos */
+    padding: 40px 5%; /* Espaçamento interno */
+    margin-top: 80px; /* Espaçamento superior */
+}
+
+/* Estilo da área ao redor do formulário */
+.around {
+    background-color: #ffffff; /* Cor de fundo */
+    border: 2px solid #09ffea; /* Borda do formulário */
+    border-radius: 15px; /* Bordas arredondadas */
+    padding: 40px; /* Espaçamento interno */
+    width: 80%; /* Largura do formulário */
+    max-width: 600px; /* Largura máxima */
+    display: flex; /* Exibe os elementos como flexbox */
+    flex-direction: column; /* Alinha os itens em coluna */
+    justify-content: center; /* Alinha os itens no centro */
+    align-items: center; /* Alinha os itens no centro */
+    box-sizing: border-box; /* Inclui bordas e padding nas dimensões */
+    margin-bottom: 40px; /* Espaçamento inferior */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ao redor da área */
+}
+
+/* Estilo dos campos de entrada dentro do formulário */
+.around input {
+    margin: 10px; /* Espaçamento ao redor de cada input */
+    padding: 10px; /* Espaçamento interno */
+    width: 100%; /* Largura total disponível */
+    max-width: 400px; /* Largura máxima */
+    border: 1px solid #ccc; /* Cor da borda */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Estilo do botão dentro do formulário */
+.around button {
+    background-color: #09ffea; /* Cor de fundo */
+    color: black; /* Cor do texto */
+    border: none; /* Sem borda */
+    padding: 15px 30px; /* Espaçamento interno */
+    margin: 15px 0; /* Espaçamento superior e inferior */
+    border-radius: 8px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de mão */
+    font-size: 16px; /* Tamanho da fonte */
+    transition: background-color 0.3s ease; /* Transição suave de cor */
+    width: 100%; /* Largura total */
+}
+
+/* Estilo do botão quando o mouse passa por cima */
+.around button:hover {
+    background-color: #05c6b3; /* Altera a cor de fundo */
+    color: white; /* Muda a cor do texto */
+}
+
+/* Estilos para a tabela */
+table {
+    width: 100%; /* Largura total da tabela */
+    border-collapse: collapse; /* Remove o espaço entre as células */
+    margin-top: 20px; /* Espaçamento superior */
+}
+
+/* Estilo das células da tabela */
+table th, table td {
+    padding: 12px; /* Espaçamento interno */
+    text-align: center; /* Alinha o texto ao centro */
+    border: 1px solid #ddd; /* Borda das células */
+}
+
+/* Estilo do cabeçalho da tabela */
+table th {
+    background-color: #09ffea; /* Cor de fundo do cabeçalho */
+    color: black; /* Cor do texto no cabeçalho */
+}
+
+/* Estilo do botão dentro das células da tabela */
+table td button {
+    background-color: #ff5c5c; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border: none; /* Sem borda */
+    padding: 8px 16px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de mão */
+}
+
+/* Estilo do botão dentro das células da tabela ao passar o mouse */
+table td button:hover {
+    background-color: #e04e4e; /* Altera a cor de fundo ao passar o mouse */
+}
+
+/* Rodapé fixo */
+.footerpage {
+    position: fixed; /* Posicionamento fixo */
+    bottom: 0; /* Fica no fundo da página */
+    left: 0; /* Fica na esquerda da página */
+    width: 100%; /* Largura total */
+    background-color: #444; /* Cor de fundo */
+    color: #fcfcfcbd; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    padding: 15px; /* Espaçamento interno */
+    font-size: 14px; /* Tamanho da fonte */
+    border-top: 3px solid #fcfcfcbd; /* Borda superior */
+}
+
+/* Estilo do botão com classe "tool" */
+.tool {
+    background-color: #0affeb; /* Cor de fundo */
+    border: none; /* Sem borda */
+    color: white; /* Cor do texto */
+    padding: 8px 8px; /* Espaçamento interno */
+    text-align: center; /* Alinhamento do texto */
+    text-decoration: none; /* Remove o sublinhado */
+    display: block; /* Faz o botão ser um bloco */
+    font-size: 16px; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor de mão */
+    border-radius: 8px; /* Bordas mais arredondadas */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efeito suave no hover e clique */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+    width: 200px; /* Largura fixa */
+    margin-left: auto; /* Margem automática à esquerda */
+    margin-right: auto; /* Margem automática à direita */
+}
+
+/* Estilo do botão "tool" ao passar o mouse */
+.tool:hover {
+    background-color: #0ee4f3; /* Altera a cor de fundo */
+    transform: translateY(-2px); /* Efeito de movimento para cima */
+}
+
+/* Estilo do botão "tool" quando recebe foco */
+.tool:focus {
+    outline: none; /* Remove a borda do foco */
+    box-shadow: 0 0 5px #07eeff, 0 0 10px rgba(0, 0, 0, 0.2); /* Efeito de foco */
+}
+
+/* Estilo do botão "tool" quando é pressionado */
+.tool:active {
+    transform: translateY(2px); /* Efeito de pressionamento para baixo */
+}
+
+.tool_bar {
+    background-color: #14ffeb; /* Cor de fundo */
+    border: none; /* Sem borda */
+    color: white; /* Cor do texto */
+    padding: 8px 8px; /* Espaçamento interno */
+    text-align: center; /* Alinhamento do texto */
+    text-decoration: none; /* Remove o sublinhado */
+    display: block; /* Faz o botão ser um bloco */
+    font-size: 16px; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor de mão */
+    border-radius: 8px; /* Bordas mais arredondadas */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efeito suave no hover e clique */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+    width: 200px; /* Largura fixa */
+    margin-left: auto; /* Margem automática à esquerda */
+    margin-right: auto; /* Margem automática à direita */
+}
+/* Estilo do botão "tool" ao passar o mouse */
+.tool_bar:hover {
+    background-color: #0c6dff; /* Altera a cor de fundo */
+    transform: translateY(-2px); /* Efeito de movimento para cima */
+}
+
+/* Estilo do botão "tool" quando recebe foco */
+.tool_bar:focus {
+    outline: none; /* Remove a borda do foco */
+    box-shadow: 0 0 5px #08ddec, 0 0 10px rgba(0, 0, 0, 0.2); /* Efeito de foco */
+}
+
+/* Estilo do botão "tool" quando é pressionado */
+.tool_bar:active {
+    transform: translateY(2px); /* Efeito de pressionamento para baixo */
+}
+
+.inputtext {
+    width: 100%; /* Ocupar toda a largura disponível */
+    max-width: 400px; /* Limita a largura */
+    padding: 12px; /* Espaçamento interno */
+    margin: 10px 0; /* Espaçamento entre os inputs */
+    border-radius: 8px; /* Bordas arredondadas */
+    border: 2px solid #ccc; /* Borda sutil */
+    font-size: 16px; /* Tamanho da fonte */
+    background-color: #fff; /* Cor de fundo */
+    box-sizing: border-box; /* Mantém o tamanho correto */
+    transition: all 0.3s ease; /* Efeito suave */
+    outline: none; /* Remove o contorno padrão */
+}

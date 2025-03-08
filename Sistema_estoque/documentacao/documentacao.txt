@@ -1,0 +1,14 @@
+IDEIAS
+pagina inicial
+
+-Estoque--->Todos os produtos catalogados com ordem e valor.
+-Logs--->Entrada e saida de capital da empresa.
+
+-Empregados--->Area que permite ver todos os empregados catalogados na empresa, sua funcao na empresa, hora de trabalho e salario.
+
+-Ponto--->Horario de entrada e saida de algum funcionaro com uma funcao de pesquisa para poder consultar os servicais.
+-----------------------------------------------------09/02------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-Criar tabelas pros produtos e tabelas para os funcionarios.
+-Descobrir oque eu faco com as logs.
+-Fazer a conexao do MySql com o node.js
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
