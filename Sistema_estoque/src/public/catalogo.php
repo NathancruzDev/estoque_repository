@@ -1,4 +1,9 @@
 <?php
+error_log();
+        include './logs/logs.php';
+
+
+
 $name = 'Hello';
 ?>
 

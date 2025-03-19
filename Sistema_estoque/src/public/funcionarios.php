@@ -1,3 +1,7 @@
+<?php 
+include './logs/logs.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

@@ -1,3 +1,8 @@
+<?php 
+include './logs/logs.php';
+?>
+
+
 <!DOCTYPE html>
 <php lang="en">
 <head>

@@ -1,6 +1,7 @@
 <?php 
-$name='Hello';
+include './logs/logs.php';
 ?>
+
 
 
 <!DOCTYPE html>
