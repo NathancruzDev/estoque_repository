@@ -3,25 +3,81 @@
     include './logs/logs.php';
     
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
         if (isset($_POST['id_materiais'])) {
+
             $material = $_POST["material"];
             switch ($_POST['gerenciar']) {
                 case "Catalogar":
-                    if (isset($_POST['id_materiais']) && isset($_POST['material']) && isset($_POST['tipo']) && isset($_POST['valor']) && isset($_POST['quantidade_estoque'])) {
+                    if(empty($_POST['material']) || empty($_POST['tipo']) || empty($_POST['valor']) || empty($_POST['quantidade_estoque'])){
+                        error_log("Erro: Todos os campos são obrigatórios.");
+                        //adicionar abaixo o script de mensagem de erro rapido do JS.
+                        echo "<p>Erro: Todos os campos são obrigatórios.</p>";
+                        
+
+                    }
+                    else if(isset($_POST['id_materiais']) && isset($_POST['material']) && isset($_POST['tipo']) && isset($_POST['valor']) && isset($_POST['quantidade_estoque'])) {
                         //catalogar
-                        $tipo = $_POST["tipo"];
-                        $valor = $_POST["valor"];
-                        $quantidade_estoque = $_POST["quantidade_estoque"];
+                        //verificacoes
+                        if (!is_string($_POST['material']) || !is_string($_POST['tipo'])) {
+                            error_log("Erro: Material e tipo devem ser strings.");
+                            //adicionar abaixo o script de mensagem de erro rapido do JS.
+                            echo "<p>Erro: Material e tipo devem ser strings.</p><script>window.history.back</script>";
+                            
+                        }
+                        if (!is_numeric($_POST['valor']) || 0>= $_POST['valor']) {
+                            error_log("Erro: Valor deve ser um número e maior que zero.");
+                            echo "<p>Erro: Valor deve ser um número e maior que zero.</p><script>window.history.back</script>";
+                            
+                        }
+                        if (!filter_var($_POST['quantidade_estoque'], FILTER_VALIDATE_INT)) {
+                            error_log("Erro: Quantidade em estoque deve ser um número inteiro.");
+                            echo "<p>Erro: Quantidade em estoque deve ser um número inteiro.</p><script>window.history.back</script>";
+                           
+                        }
+                        $material = filter_var($_POST['material'], FILTER_SANITIZE_STRING);
+                        $tipo = filter_var($_POST['tipo'], FILTER_SANITIZE_STRING);
+                        $valor = filter_var($_POST['valor'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+                        $quantidade_estoque = filter_var($_POST['quantidade_estoque'], FILTER_SANITIZE_NUMBER_INT);
+
+                        if ($valor <= 0) {
+                            error_log("Erro: O valor deve ser maior que zero.");
+                            echo "<p>Erro: O valor deve ser maior que zero.</p><script>window.history.back</script>";
+                         
+                        }
+
+                        if ($quantidade_estoque < 0) {
+                            error_log("Erro: A quantidade em estoque não pode ser negativa.");
+                            echo "<p>Erro: A quantidade em estoque não pode ser negativa.</p><script>window.history.back</script>";
+                           
+                        }
+
+                        // Validação de ID
+                        if (!filter_var($_POST['id_materiais'], FILTER_VALIDATE_INT) || $_POST['id_materiais'] <= 0) {
+                            error_log("Erro: ID do material inválido.");
+                            echo "<p>Erro: ID do material inválido.</p> <script>window.history.back</script>";
+                           
+                        }
                         //tem que catalogar no sgbd
-    
+                        
                         //abaixo voce tem que fazer a limpeza das variaveis temporarias.
+                        unset($material, $tipo, $valor, $quantidade_estoque);
                     } else {
                         error_log("Tem que preencher todos os campos para catalogar.");
-                        echo "<p>Erro: Tem que preencher todos os campos para catalogar.</p>";
+                        echo "<p>Erro: Tem que preencher todos os campos para catalogar.</p> <script>window.history.back</script>";
                     }
                     break;
                 case "Remover":
+                    if(!empty($_POST['material']) && !isnumeric($_POST['material'])){
+                        
+                        error_log("Erro: Para remover um material o campo ID e obrigatorio.");
+                        //adicionar abaixo o script de mensagem de erro rapido do JS.
+                        echo "<p>Erro: Para remover um material o campo ID e obrigatorio. </p> <script>window.history.back</script>";
+                        
+                        unset($material);
+                    }
                     //id ja foi declarado
+
                     break;
     
                 default:
