@@ -1,10 +1,49 @@
 <?php
 error_log();
         include './logs/logs.php';
+   
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
+        if (isset($_POST["id_materiais"])) {
+            $id_materiais = $_POST["id_materiais"];
 
+         
+            if (isset($_POST["acao"])) {
+                switch ($_POST["acao"]) {
+                    case "catalogar":
+                       
+                        if (isset($_POST["material"], $_POST["tipo"], $_POST["valor"], $_POST["quantidade_estoque"])) {
+                            $material = $_POST["material"];
+                            $tipo = $_POST["tipo"];
+                            $valor = $_POST["valor"];
+                            $quantidade_estoque = $_POST["quantidade_estoque"];
 
+                            
+                            echo "<p>Item catalogado com sucesso!</p>";
+                        } else {
+                            echo "<p style='color: red;'>Erro: Todos os campos são obrigatórios para catalogar.</p>";
+                        }
+                        break;
 
-$name = 'Hello';
+                    case "remover":
+                       
+                        echo "<p>Item removido com sucesso!</p>";
+                        //adicioanar  uma variavel temporaria que salva o ultimo id removido
+                        error_log("Item removido {$id}")
+                        free($id);
+                        break;
+
+                    default:
+                        echo "<p'>Erro: Ação inválida.</p>";
+                }
+            } else {
+                echo "<p'>Erro: Nenhuma ação foi selecionada.</p>";
+            }
+        } else {
+            echo "<p'>Erro: O ID do material é obrigatório.</p>";
+        }
+    }
+
 ?>
 
 
@@ -37,14 +76,14 @@ $name = 'Hello';
 
     <div class="espacamento">
         <p>Caso deseja remover digitar apenas o Id do produto.</p>
-        <form action="" method="GET">
-            <input type="text" class="inputtext" placeholder="Id" name="id" id="">
-            <input type="text" class="inputtext" placeholder="Material" name="Material" id="">
-            <input type="text" class="inputtext" placeholder="Tipo" name="Tipo" id="">
-            <input type="text" class="inputtext" placeholder="Valor" name="Valor" id="">
-            <input type="text" class="inputtext" placeholder="Quantidade" name="Quantidade" id="">
+        <form action="<?php echo $_SERVER['PHP_SELF']>;" method="POST">
+            <input type="text" class="inputtext" placeholder="Id" name="id_materiais" id="" required>
+            <input type="text" class="inputtext" placeholder="Material" name="material" id="">
+            <input type="text" class="inputtext" placeholder="Tipo" name="tipo" id="">
+            <input type="text" class="inputtext" placeholder="Valor" name="valor" id="">
+            <input type="text" class="inputtext" placeholder="Quantidade" name="quantidade_estoque" id="">
         </form>
-
+       
     </div>
 
     <div class="espacamento">
