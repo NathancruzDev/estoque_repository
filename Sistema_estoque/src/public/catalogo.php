@@ -1,49 +1,32 @@
 <?php
 error_log();
-        include './logs/logs.php';
+    include './logs/logs.php';
    
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
-        if (isset($_POST["id_materiais"])) {
-            $id_materiais = $_POST["id_materiais"];
+        if(isset($_POST['id_materiais'])){
+            $material = $_POST["material"];
+            switch($_POST['gerenciar']){
+                case: 'Catalogar':
+                        if(isset($_POST['id_materiais'])&& isset($_POST['material']) && isset($_POST['tipo']) && isset($_POST['valor']) && isset($_POST['quantidade_estoque'])){
+                        //catalogar
+                        
+                        $tipo = $_POST["tipo"];
+                        $valor = $_POST["valor"];
+                        $quantidade_estoque = $_POST["quantidade_estoque"];
+                        //tem que catalogar no sgbd
 
-         
-            if (isset($_POST["acao"])) {
-                switch ($_POST["acao"]) {
-                    case "catalogar":
-                       
-                        if (isset($_POST["material"], $_POST["tipo"], $_POST["valor"], $_POST["quantidade_estoque"])) {
-                            $material = $_POST["material"];
-                            $tipo = $_POST["tipo"];
-                            $valor = $_POST["valor"];
-                            $quantidade_estoque = $_POST["quantidade_estoque"];
-
-                            
-                            echo "<p>Item catalogado com sucesso!</p>";
-                        } else {
-                            echo "<p style='color: red;'>Erro: Todos os campos são obrigatórios para catalogar.</p>";
-                        }
-                        break;
-
-                    case "remover":
-                       
-                        echo "<p>Item removido com sucesso!</p>";
-                        //adicioanar  uma variavel temporaria que salva o ultimo id removido
-                        error_log("Item removido {$id}")
-                        free($id);
-                        break;
-
-                    default:
-                        echo "<p'>Erro: Ação inválida.</p>";
-                }
-            } else {
-                echo "<p'>Erro: Nenhuma ação foi selecionada.</p>";
-            }
-        } else {
-            echo "<p'>Erro: O ID do material é obrigatório.</p>";
+                        //abaixo voce tem que fazer a limpeza das variaveis temporarias.
+                    } else{
+                        error_log("Tem que preencher todos os campos para catalogar.");
+                        echo <p script="Error.js"></p>
+                    }
+                    breack;
+                    case "Remover":
+                        //id ja foi declarado
+                        
+                                    }
         }
-    }
-
 ?>
 
 
@@ -76,7 +59,7 @@ error_log();
 
     <div class="espacamento">
         <p>Caso deseja remover digitar apenas o Id do produto.</p>
-        <form action="<?php echo $_SERVER['PHP_SELF']>;" method="POST">
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>;" method="POST">
             <input type="text" class="inputtext" placeholder="Id" name="id_materiais" id="" required>
             <input type="text" class="inputtext" placeholder="Material" name="material" id="">
             <input type="text" class="inputtext" placeholder="Tipo" name="tipo" id="">
@@ -87,8 +70,8 @@ error_log();
     </div>
 
     <div class="espacamento">
-        <a href="#" class="tool_bar">Catalogar</a>
-        <a href="#" class="tool_bar">Remover</a>
+        <a href="#" class="tool_bar" name='gerenciar'>Catalogar</a>
+        <a href="#" class="tool_bar" name='gerenciar'>Remover</a>
     </div>
 
     <!-- Rodapé fixo -->
