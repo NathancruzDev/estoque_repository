@@ -1,32 +1,35 @@
 <?php
-error_log();
+    error_log("catalogo");
     include './logs/logs.php';
-   
+    
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        
-        if(isset($_POST['id_materiais'])){
+        if (isset($_POST['id_materiais'])) {
             $material = $_POST["material"];
-            switch($_POST['gerenciar']){
-                case: 'Catalogar':
-                        if(isset($_POST['id_materiais'])&& isset($_POST['material']) && isset($_POST['tipo']) && isset($_POST['valor']) && isset($_POST['quantidade_estoque'])){
+            switch ($_POST['gerenciar']) {
+                case "Catalogar":
+                    if (isset($_POST['id_materiais']) && isset($_POST['material']) && isset($_POST['tipo']) && isset($_POST['valor']) && isset($_POST['quantidade_estoque'])) {
                         //catalogar
-                        
                         $tipo = $_POST["tipo"];
                         $valor = $_POST["valor"];
                         $quantidade_estoque = $_POST["quantidade_estoque"];
                         //tem que catalogar no sgbd
-
+    
                         //abaixo voce tem que fazer a limpeza das variaveis temporarias.
-                    } else{
+                    } else {
                         error_log("Tem que preencher todos os campos para catalogar.");
-                        echo <p script="Error.js"></p>
+                        echo "<p>Erro: Tem que preencher todos os campos para catalogar.</p>";
                     }
-                    breack;
-                    case "Remover":
-                        //id ja foi declarado
-                        
-                                    }
+                    break;
+                case "Remover":
+                    //id ja foi declarado
+                    break;
+    
+                default:
+                    //falta acabar aq
+                    break;
+            }
         }
+    }
 ?>
 
 
