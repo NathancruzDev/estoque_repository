@@ -1,6 +1,7 @@
 <?php
     error_log("catalogo");
     include './logs/logs.php';
+    include './SGBD/database.php';
     
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
@@ -12,9 +13,8 @@
                     if(empty($_POST['material']) || empty($_POST['tipo']) || empty($_POST['valor']) || empty($_POST['quantidade_estoque'])){
                         error_log("Erro: Todos os campos são obrigatórios.");
                         //adicionar abaixo o script de mensagem de erro rapido do JS.
-                        echo "<p>Erro: Todos os campos são obrigatórios.</p>";
-                        
-
+                        echo "<p>Erro: Todos os campos são obrigatórios.</p><script>window.history.back</script>";
+                
                     }
                     else if(isset($_POST['id_materiais']) && isset($_POST['material']) && isset($_POST['tipo']) && isset($_POST['valor']) && isset($_POST['quantidade_estoque'])) {
                         //catalogar
@@ -59,7 +59,12 @@
                            
                         }
                         //tem que catalogar no sgbd
-                        
+                        $sql ="INSERT INTO materiais (material, tipo, valor, quantidade_estoque) VALUES ('$material', '$tipo', $valor, $quantidade_estoque)";
+
+
+
+
+
                         //abaixo voce tem que fazer a limpeza das variaveis temporarias.
                         unset($material, $tipo, $valor, $quantidade_estoque);
                     } else {
