@@ -1,4 +1,5 @@
 <?php
+   session_start();
    error_log("catalogo");
    include './logs/logs.php';
    include './SGBD/database.php';
