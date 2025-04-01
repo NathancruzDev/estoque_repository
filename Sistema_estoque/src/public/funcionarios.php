@@ -1,5 +1,6 @@
 <?php 
 include './logs/logs.php';
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -17,10 +18,10 @@ include './logs/logs.php';
 
     <header class="header">
         <nav>
-            <a href="pagina_inicial.html">Voltar</a>
-            <a href="estoque.html">Estoque</a>
-            <a href="logs.html">Logs</a>
-            <a href="funcionarios.html">Funcionários</a>
+            <a href="index.php">Voltar</a>
+            <a href="estoque.php">Estoque</a>
+            <a href="logs.php">Logs</a>
+            <a href="funcionarios.php">Funcionários</a>
         </nav>
     </header>
 

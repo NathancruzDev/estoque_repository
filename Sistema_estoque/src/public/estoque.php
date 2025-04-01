@@ -1,8 +1,15 @@
 <?php 
 include './logs/logs.php';
+include 'database.php';
+session_start();
+
+$consultasql = "SELECT * FROM materiais";
+$resultado = mysqli_query($connect, $consultasql); // Corrigido o nome da função e variável
+
+if(!$resultado) {
+    die("Erro na consulta: " . mysqli_error($connect));
+}
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,51 +24,55 @@ include './logs/logs.php';
         <a href="login.html" class="sign-in-button">Entrar</a>
     </div>
 
-    <!-- Cabeçalho com o nome da empresa -->
     <header class="header">
         <nav>
-            <a href="pagina_inicial.php">Voltar</a>
-            <!--<a href="estoque.php">Estoque</a>-->
+            <a href=index.php">Voltar</a>
             <a href="logs.php">Logs</a>
             <a href="funcionarios.php">Funcionários</a>
         </nav>
     </header>
 
-        <h1>Estoque</h1>
+    <h1>Estoque</h1>
 
-    <div >
+    <div>
         <a href="catalogo.php" class="tool">Catalogar</a>
     </div>
 
-
-
     <div class="center">
-
-
-        <table border="1">
+        <table>
             <thead>
                 <tr>
-                    <th>0</th>
+                    <th>ID</th>
                     <th>Material</th>
                     <th>Tipo</th>
                     <th>Valor</th>
                     <th>Quantidade</th>
                 </tr>
-                <tr>
-                    <th>1</th>
-                    <th>Madeira</th>
-                    <th>construcao</th>
-                    <th>2000</th>
-                    <th>532</th>
-                </tr>
             </thead>
+            <tbody>
+                <?php 
+                if(mysqli_num_rows($resultado) > 0) {
+                    while($row = mysqli_fetch_assoc($resultado)) {
+                        echo "<tr>
+                                <td>".htmlspecialchars($row['id_materiais'])."</td>
+                                <td>".htmlspecialchars($row['material'])."</td>
+                                <td>".htmlspecialchars($row['tipo'])."</td>
+                                <td>R$ ".number_format($row['valor'], 2, ',', '.')."</td>
+                                <td>".htmlspecialchars($row['quantidade_estoque'])."</td>
+                              </tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='5'>Nenhum item encontrado no estoque.</td></tr>";
+                }
+                ?>
+            </tbody>
         </table>
     </div>
 
-    <!-- Rodapé fixo -->
     <footer class="footerpage">
-    <h2>Rodapé Fixo</h2>
+        <h2>Rodapé Fixo</h2>
     </footer>
 
+    <?php mysqli_close($connect); ?>
 </body>
 </html>

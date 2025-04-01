@@ -1,5 +1,6 @@
 <?php 
 include './logs/logs.php';
+session_start();
 ?>
 
 
@@ -19,7 +20,7 @@ include './logs/logs.php';
     <!-- Cabeçalho com o nome da empresa -->
     <header class="header">
         <nav>
-            <a href="pagina_inicial.php">Voltar</a>
+            <a href="index.php">Voltar</a>
             <a href="estoque.php">Estoque</a>
             <a href="logs.php">Logs</a>
             <a href="funcionarios.php">Funcionários</a>

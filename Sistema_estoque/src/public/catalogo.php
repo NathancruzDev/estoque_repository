@@ -1,8 +1,8 @@
 <?php
-   session_start();
    error_log("catalogo");
    include './logs/logs.php';
-   include './SGBD/database.php';
+   include 'database.php';
+   session_start();
    
    if ($_SERVER["REQUEST_METHOD"] == "POST") {
        if (isset($_POST['id_materiais'])) {
@@ -113,7 +113,6 @@
     <header class="header">
         <nav>
             <a href="estoque.php">Voltar</a>
-            <a href="estoque.php">Estoque</a>
             <a href="logs.php">Logs</a>
             <a href="funcionarios.php">Funcionários</a>
         </nav>
