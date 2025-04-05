@@ -4,7 +4,7 @@ include 'database.php';
 session_start();
 
 $consultasql = "SELECT * FROM materiais";
-$resultado = mysqli_query($connect, $consultasql); // Corrigido o nome da função e variável
+$resultado = mysqli_query($connect, $consultasql); 
 
 if(!$resultado) {
     die("Erro na consulta: " . mysqli_error($connect));
@@ -36,6 +36,10 @@ if(!$resultado) {
 
     <div>
         <a href="catalogo.php" class="tool">Catalogar</a>
+    </div>
+
+    <div>
+    <a href="remover.php" class="tool">Retirar do Calogo</a>
     </div>
 
     <div class="center">
